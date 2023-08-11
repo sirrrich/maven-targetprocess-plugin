@@ -1,0 +1,145 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<groupId>com.googlecode.maven-targetprocess-plugin</groupId>
+	<artifactId>maven-targetprocess-plugin</artifactId>
+	<version>0.1-SNAPSHOT</version>
+	<packaging>maven-plugin</packaging>
+
+	<name>TargetProcess Build Plugin</name>
+	<description>Creates a Build in TargetProcess after successful Maven build</description>
+	<url>https://code.google.com/p/maven-targetprocess-plugin/</url>
+	<inceptionYear>2010</inceptionYear>
+	
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	
+	<prerequisites>
+		<maven>2.0.9</maven>
+	</prerequisites>
+	
+	<issueManagement>
+		<system>Google Code</system>
+		<url>https://code.google.com/p/maven-targetprocess-plugin/issues/list</url>
+	</issueManagement>
+	
+	<scm>
+		<connection>scm:svn:http://maven-targetprocess-plugin.googlecode.com/svn/trunk/</connection>
+		<developerConnection>scm:svn:https://maven-targetprocess-plugin.googlecode.com/svn/trunk/</developerConnection>
+	</scm>
+	
+	<developers>
+		<developer>
+			<id>stuart.gunter</id>
+			<name>Stuart Gunter</name>
+			<url>http://stuartgunter.wordpress.com</url>
+			<timezone>0</timezone>
+		</developer>
+	</developers>
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<xfire.version>1.2.6</xfire.version>
+		<xfire.src.dir>${basedir}/target/generated-sources/xfire</xfire.src.dir>
+	</properties>
+	
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.maven</groupId>
+			<artifactId>maven-plugin-api</artifactId>
+			<version>2.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.maven</groupId>
+			<artifactId>maven-artifact-manager</artifactId>
+			<version>2.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.xfire</groupId>
+			<artifactId>xfire-java5</artifactId>
+			<version>${xfire.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.xfire</groupId>
+			<artifactId>xfire-annotations</artifactId>
+			<version>${xfire.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.xfire</groupId>
+			<artifactId>xfire-jaxb2</artifactId>
+			<version>${xfire.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.xfire</groupId>
+			<artifactId>xfire-ws-security</artifactId>
+			<version>${xfire.version}</version>
+		</dependency>
+	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.1</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.0-beta-9</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-plugin-plugin</artifactId>
+				<version>2.5.1</version>
+				<configuration>
+					<goalPrefix>tp</goalPrefix>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.maven.plugin-tools</groupId>
+						<artifactId>maven-plugin-tools-ant</artifactId>
+						<version>2.5</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.2</version>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<configuration>
+							<tasks>
+								<delete dir="${xfire.src.dir}" />
+								<taskdef name="wsgen" classname="org.codehaus.xfire.gen.WsGenTask" classpathref="maven.compile.classpath" />
+								<wsgen outputDirectory="${xfire.src.dir}" wsdl="${basedir}/src/main/wsdl/BuildService.wsdl" package="org.stuartgunter.maven.plugins.tp.build" externalBindings="${basedir}/src/main/jaxb/bindings-build.xml" generateServerStubs="false" overwrite="true" />
+							</tasks>
+							<sourceRoot>${xfire.src.dir}</sourceRoot>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>org.codehaus.xfire</groupId>
+						<artifactId>xfire-generator</artifactId>
+						<version>${xfire.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+	</build>
+</project>

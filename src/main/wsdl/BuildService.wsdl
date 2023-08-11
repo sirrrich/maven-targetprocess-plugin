@@ -1,0 +1,1323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://targetprocess.com" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://targetprocess.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://targetprocess.com">
+      <s:element name="RetrieveAllForLastCommentUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="lastCommentUserID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveAllForLastCommentUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveAllForLastCommentUserResult" type="tns:ArrayOfBuildDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBuildDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BuildDTO" nillable="true" type="tns:BuildDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BuildDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ProjectID" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="ProjectName" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="BuildID" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="StartDate" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="EndDate" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="CreateDate" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="ModifyDate" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="LastCommentDate" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="NumericPriority" nillable="true" type="s:double" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomField1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomField2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomField3" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomField4" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomField5" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomField6" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomField7" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomField8" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomField9" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomField10" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomField11" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomField12" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomField13" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomField14" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomField15" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="BuildDate" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="LastCommentUserID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ParentProjectID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="OwnerID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="LastEditorID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="IterationID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ReleaseID" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="ParentProjectName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="EntityTypeName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="IterationName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ReleaseName" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="DataTransferObject" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" nillable="true" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RetrieveAllForProject">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="projectID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveAllForProjectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveAllForProjectResult" type="tns:ArrayOfBuildDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveAllForOwner">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ownerID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveAllForOwnerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveAllForOwnerResult" type="tns:ArrayOfBuildDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveAllForIteration">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iterationID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveAllForIterationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveAllForIterationResult" type="tns:ArrayOfBuildDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveAllForRelease">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="releaseID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveAllForReleaseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveAllForReleaseResult" type="tns:ArrayOfBuildDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveCommentsForBuild">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="buildID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveCommentsForBuildResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveCommentsForBuildResult" type="tns:ArrayOfCommentDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCommentDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CommentDTO" nillable="true" type="tns:CommentDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CommentDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CommentID" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CreateDate" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="GeneralID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="OwnerID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ParentID" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="GeneralName" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="AddCommentToBuild">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="buildID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="comment" type="tns:CommentDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddCommentToBuildResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddCommentToBuildResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveCommentFromBuild">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="buildID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="commentID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveCommentFromBuildResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetrieveAttachmentsForBuild">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="buildID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveAttachmentsForBuildResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveAttachmentsForBuildResult" type="tns:ArrayOfAttachmentDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAttachmentDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AttachmentDTO" nillable="true" type="tns:AttachmentDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AttachmentDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="FileSize" nillable="true" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="AttachmentID" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="OriginalFileName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UniqueFileName" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CreateDate" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="GeneralID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="MessageID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="OwnerID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="AttachmentFileID" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="GeneralName" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="RemoveAttachmentFromBuild">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="buildID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="attachmentID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveAttachmentFromBuildResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AddAttachmentToBuild">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="buildID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddAttachmentToBuildResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddAttachmentToBuildResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveAttachedRequestsForBuild">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="buildID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveAttachedRequestsForBuildResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveAttachedRequestsForBuildResult" type="tns:ArrayOfRequestGeneralDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfRequestGeneralDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RequestGeneralDTO" nillable="true" type="tns:RequestGeneralDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RequestGeneralDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="RequestGeneralID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CreateDate" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="IsAttached" nillable="true" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="GeneralID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="RequestID" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="GeneralName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="RequestName" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="AddRequestGeneralToBuild">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="buildID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="requestGeneral" type="tns:RequestGeneralDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddRequestGeneralToBuildResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddRequestGeneralToBuildResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveRequestGeneralFromBuild">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="buildID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="requestGeneralID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveRequestGeneralFromBuildResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetrieveTestPlanRunsForBuild">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="buildID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveTestPlanRunsForBuildResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveTestPlanRunsForBuildResult" type="tns:ArrayOfTestPlanRunDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTestPlanRunDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TestPlanRunDTO" nillable="true" type="tns:TestPlanRunDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TestPlanRunDTO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:DataTransferObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="CommentOnChangingState" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="TestPlanRunID" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="StartDate" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="EndDate" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="CreateDate" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="ModifyDate" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="LastCommentDate" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="NumericPriority" nillable="true" type="s:double" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomField1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomField2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomField3" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomField4" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomField5" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomField6" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomField7" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomField8" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomField9" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomField10" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomField11" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomField12" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomField13" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomField14" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustomField15" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Effort" nillable="true" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="EffortCompleted" nillable="true" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="EffortToDo" nillable="true" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="TimeSpent" nillable="true" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="TimeRemain" nillable="true" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="FailedCount" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="PassedCount" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="NotRunCount" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="LastCommentUserID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="OwnerID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="LastEditorID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="EntityStateID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="PriorityID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ProjectID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="IterationID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ParentID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ReleaseID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="TestPlanID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="BuildID" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="EntityTypeName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="EntityStateName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PriorityName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ProjectName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="IterationName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ParentName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ReleaseName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TestPlanName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BuildName" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="AddTestPlanRunToBuild">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="buildID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="testPlanRun" type="tns:TestPlanRunDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddTestPlanRunToBuildResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddTestPlanRunToBuildResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveTestPlanRunFromBuild">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="buildID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="generalID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveTestPlanRunFromBuildResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetByIDResult" type="tns:BuildDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Create">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="entity" type="tns:BuildDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="entity" type="tns:BuildDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Delete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetrieveAll">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetrieveAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveAllResult" type="tns:ArrayOfBuildDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Retrieve">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="hql" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RetrieveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveResult" type="tns:ArrayOfBuildDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetIDs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="hql" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetIDsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetIDsResult" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrievePage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="hql" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="page" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageSize" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrievePageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrievePageResult" type="tns:ArrayOfBuildDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="hql" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RetrieveCountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RetrieveAllForLastCommentUserSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveAllForLastCommentUser" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveAllForLastCommentUserSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveAllForLastCommentUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveAllForProjectSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveAllForProject" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveAllForProjectSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveAllForProjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveAllForOwnerSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveAllForOwner" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveAllForOwnerSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveAllForOwnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveAllForIterationSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveAllForIteration" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveAllForIterationSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveAllForIterationResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveAllForReleaseSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveAllForRelease" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveAllForReleaseSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveAllForReleaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveCommentsForBuildSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveCommentsForBuild" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveCommentsForBuildSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveCommentsForBuildResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddCommentToBuildSoapIn">
+    <wsdl:part name="parameters" element="tns:AddCommentToBuild" />
+  </wsdl:message>
+  <wsdl:message name="AddCommentToBuildSoapOut">
+    <wsdl:part name="parameters" element="tns:AddCommentToBuildResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveCommentFromBuildSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveCommentFromBuild" />
+  </wsdl:message>
+  <wsdl:message name="RemoveCommentFromBuildSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveCommentFromBuildResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveAttachmentsForBuildSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveAttachmentsForBuild" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveAttachmentsForBuildSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveAttachmentsForBuildResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveAttachmentFromBuildSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveAttachmentFromBuild" />
+  </wsdl:message>
+  <wsdl:message name="RemoveAttachmentFromBuildSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveAttachmentFromBuildResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddAttachmentToBuildSoapIn">
+    <wsdl:part name="parameters" element="tns:AddAttachmentToBuild" />
+  </wsdl:message>
+  <wsdl:message name="AddAttachmentToBuildSoapOut">
+    <wsdl:part name="parameters" element="tns:AddAttachmentToBuildResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveAttachedRequestsForBuildSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveAttachedRequestsForBuild" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveAttachedRequestsForBuildSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveAttachedRequestsForBuildResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddRequestGeneralToBuildSoapIn">
+    <wsdl:part name="parameters" element="tns:AddRequestGeneralToBuild" />
+  </wsdl:message>
+  <wsdl:message name="AddRequestGeneralToBuildSoapOut">
+    <wsdl:part name="parameters" element="tns:AddRequestGeneralToBuildResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveRequestGeneralFromBuildSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveRequestGeneralFromBuild" />
+  </wsdl:message>
+  <wsdl:message name="RemoveRequestGeneralFromBuildSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveRequestGeneralFromBuildResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveTestPlanRunsForBuildSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveTestPlanRunsForBuild" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveTestPlanRunsForBuildSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveTestPlanRunsForBuildResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddTestPlanRunToBuildSoapIn">
+    <wsdl:part name="parameters" element="tns:AddTestPlanRunToBuild" />
+  </wsdl:message>
+  <wsdl:message name="AddTestPlanRunToBuildSoapOut">
+    <wsdl:part name="parameters" element="tns:AddTestPlanRunToBuildResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveTestPlanRunFromBuildSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveTestPlanRunFromBuild" />
+  </wsdl:message>
+  <wsdl:message name="RemoveTestPlanRunFromBuildSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveTestPlanRunFromBuildResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetByID" />
+  </wsdl:message>
+  <wsdl:message name="GetByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateSoapIn">
+    <wsdl:part name="parameters" element="tns:Create" />
+  </wsdl:message>
+  <wsdl:message name="CreateSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:Update" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:Delete" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveAllSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveAll" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveAllSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveSoapIn">
+    <wsdl:part name="parameters" element="tns:Retrieve" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetIDsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetIDs" />
+  </wsdl:message>
+  <wsdl:message name="GetIDsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrievePageSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrievePage" />
+  </wsdl:message>
+  <wsdl:message name="RetrievePageSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrievePageResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveCountSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveCount" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveCountSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveCountResponse" />
+  </wsdl:message>
+  <wsdl:portType name="BuildServiceSoap">
+    <wsdl:operation name="RetrieveAllForLastCommentUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves Build entities by specified GeneralUser</wsdl:documentation>
+      <wsdl:input message="tns:RetrieveAllForLastCommentUserSoapIn" />
+      <wsdl:output message="tns:RetrieveAllForLastCommentUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAllForProject">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves Build entities by specified Project</wsdl:documentation>
+      <wsdl:input message="tns:RetrieveAllForProjectSoapIn" />
+      <wsdl:output message="tns:RetrieveAllForProjectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAllForOwner">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves Build entities by specified GeneralUser</wsdl:documentation>
+      <wsdl:input message="tns:RetrieveAllForOwnerSoapIn" />
+      <wsdl:output message="tns:RetrieveAllForOwnerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAllForIteration">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves Build entities by specified Iteration</wsdl:documentation>
+      <wsdl:input message="tns:RetrieveAllForIterationSoapIn" />
+      <wsdl:output message="tns:RetrieveAllForIterationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAllForRelease">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves Build entities by specified Release</wsdl:documentation>
+      <wsdl:input message="tns:RetrieveAllForReleaseSoapIn" />
+      <wsdl:output message="tns:RetrieveAllForReleaseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveCommentsForBuild">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves the child collection of Comment for specified Build</wsdl:documentation>
+      <wsdl:input message="tns:RetrieveCommentsForBuildSoapIn" />
+      <wsdl:output message="tns:RetrieveCommentsForBuildSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCommentToBuild">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Adds Comment to specified Build</wsdl:documentation>
+      <wsdl:input message="tns:AddCommentToBuildSoapIn" />
+      <wsdl:output message="tns:AddCommentToBuildSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCommentFromBuild">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Removes Comment from specified Build</wsdl:documentation>
+      <wsdl:input message="tns:RemoveCommentFromBuildSoapIn" />
+      <wsdl:output message="tns:RemoveCommentFromBuildSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAttachmentsForBuild">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves the child collection of Attachment for specified Build</wsdl:documentation>
+      <wsdl:input message="tns:RetrieveAttachmentsForBuildSoapIn" />
+      <wsdl:output message="tns:RetrieveAttachmentsForBuildSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAttachmentFromBuild">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Removes Attachment from specified Build</wsdl:documentation>
+      <wsdl:input message="tns:RemoveAttachmentFromBuildSoapIn" />
+      <wsdl:output message="tns:RemoveAttachmentFromBuildSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAttachmentToBuild">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Adds the attachment to specified Build. Note: The filename is the name of existing file which should be uploaded to upload directory using FileService or manually.</wsdl:documentation>
+      <wsdl:input message="tns:AddAttachmentToBuildSoapIn" />
+      <wsdl:output message="tns:AddAttachmentToBuildSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAttachedRequestsForBuild">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves the child collection of RequestGeneral for specified Build</wsdl:documentation>
+      <wsdl:input message="tns:RetrieveAttachedRequestsForBuildSoapIn" />
+      <wsdl:output message="tns:RetrieveAttachedRequestsForBuildSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRequestGeneralToBuild">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Adds RequestGeneral to specified Build</wsdl:documentation>
+      <wsdl:input message="tns:AddRequestGeneralToBuildSoapIn" />
+      <wsdl:output message="tns:AddRequestGeneralToBuildSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveRequestGeneralFromBuild">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Removes RequestGeneral from specified Build</wsdl:documentation>
+      <wsdl:input message="tns:RemoveRequestGeneralFromBuildSoapIn" />
+      <wsdl:output message="tns:RemoveRequestGeneralFromBuildSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveTestPlanRunsForBuild">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves the child collection of TestPlanRun for specified Build</wsdl:documentation>
+      <wsdl:input message="tns:RetrieveTestPlanRunsForBuildSoapIn" />
+      <wsdl:output message="tns:RetrieveTestPlanRunsForBuildSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTestPlanRunToBuild">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Adds TestPlanRun to specified Build</wsdl:documentation>
+      <wsdl:input message="tns:AddTestPlanRunToBuildSoapIn" />
+      <wsdl:output message="tns:AddTestPlanRunToBuildSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTestPlanRunFromBuild">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Removes TestPlanRun from specified Build</wsdl:documentation>
+      <wsdl:input message="tns:RemoveTestPlanRunFromBuildSoapIn" />
+      <wsdl:output message="tns:RemoveTestPlanRunFromBuildSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves the entity by specified ID</wsdl:documentation>
+      <wsdl:input message="tns:GetByIDSoapIn" />
+      <wsdl:output message="tns:GetByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Create">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Creates the entity from the Data Transfer Object. Returns ID of the added entity</wsdl:documentation>
+      <wsdl:input message="tns:CreateSoapIn" />
+      <wsdl:output message="tns:CreateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Updates the entity</wsdl:documentation>
+      <wsdl:input message="tns:UpdateSoapIn" />
+      <wsdl:output message="tns:UpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes the entity by specified entity ID</wsdl:documentation>
+      <wsdl:input message="tns:DeleteSoapIn" />
+      <wsdl:output message="tns:DeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAll">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves all available entities</wsdl:documentation>
+      <wsdl:input message="tns:RetrieveAllSoapIn" />
+      <wsdl:output message="tns:RetrieveAllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Retrieve">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves all available entities by specified HQL string and provided parameters for it. The information about syntax of HQL is specified in NHibernate documentation</wsdl:documentation>
+      <wsdl:input message="tns:RetrieveSoapIn" />
+      <wsdl:output message="tns:RetrieveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIDs">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves indetities by specified HQL string and provided parameters for it. The information about syntax of HQL is specified in NHibernate documentation</wsdl:documentation>
+      <wsdl:input message="tns:GetIDsSoapIn" />
+      <wsdl:output message="tns:GetIDsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrievePage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves all available entities by specified HQL string and provided parameters for specified page and page size. The information about syntax of HQL is specified in NHibernate documentation</wsdl:documentation>
+      <wsdl:input message="tns:RetrievePageSoapIn" />
+      <wsdl:output message="tns:RetrievePageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves count by specified HQL string and provided parameters. The information about syntax of HQL is specified in NHibernate documentation</wsdl:documentation>
+      <wsdl:input message="tns:RetrieveCountSoapIn" />
+      <wsdl:output message="tns:RetrieveCountSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BuildServiceSoap" type="tns:BuildServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RetrieveAllForLastCommentUser">
+      <soap:operation soapAction="http://targetprocess.com/RetrieveAllForLastCommentUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAllForProject">
+      <soap:operation soapAction="http://targetprocess.com/RetrieveAllForProject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAllForOwner">
+      <soap:operation soapAction="http://targetprocess.com/RetrieveAllForOwner" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAllForIteration">
+      <soap:operation soapAction="http://targetprocess.com/RetrieveAllForIteration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAllForRelease">
+      <soap:operation soapAction="http://targetprocess.com/RetrieveAllForRelease" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveCommentsForBuild">
+      <soap:operation soapAction="http://targetprocess.com/RetrieveCommentsForBuild" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCommentToBuild">
+      <soap:operation soapAction="http://targetprocess.com/AddCommentToBuild" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCommentFromBuild">
+      <soap:operation soapAction="http://targetprocess.com/RemoveCommentFromBuild" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAttachmentsForBuild">
+      <soap:operation soapAction="http://targetprocess.com/RetrieveAttachmentsForBuild" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAttachmentFromBuild">
+      <soap:operation soapAction="http://targetprocess.com/RemoveAttachmentFromBuild" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAttachmentToBuild">
+      <soap:operation soapAction="http://targetprocess.com/AddAttachmentToBuild" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAttachedRequestsForBuild">
+      <soap:operation soapAction="http://targetprocess.com/RetrieveAttachedRequestsForBuild" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRequestGeneralToBuild">
+      <soap:operation soapAction="http://targetprocess.com/AddRequestGeneralToBuild" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveRequestGeneralFromBuild">
+      <soap:operation soapAction="http://targetprocess.com/RemoveRequestGeneralFromBuild" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveTestPlanRunsForBuild">
+      <soap:operation soapAction="http://targetprocess.com/RetrieveTestPlanRunsForBuild" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTestPlanRunToBuild">
+      <soap:operation soapAction="http://targetprocess.com/AddTestPlanRunToBuild" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTestPlanRunFromBuild">
+      <soap:operation soapAction="http://targetprocess.com/RemoveTestPlanRunFromBuild" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByID">
+      <soap:operation soapAction="http://targetprocess.com/GetByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Create">
+      <soap:operation soapAction="http://targetprocess.com/Create" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap:operation soapAction="http://targetprocess.com/Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <soap:operation soapAction="http://targetprocess.com/Delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAll">
+      <soap:operation soapAction="http://targetprocess.com/RetrieveAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Retrieve">
+      <soap:operation soapAction="http://targetprocess.com/Retrieve" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIDs">
+      <soap:operation soapAction="http://targetprocess.com/GetIDs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrievePage">
+      <soap:operation soapAction="http://targetprocess.com/RetrievePage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveCount">
+      <soap:operation soapAction="http://targetprocess.com/RetrieveCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BuildServiceSoap12" type="tns:BuildServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RetrieveAllForLastCommentUser">
+      <soap12:operation soapAction="http://targetprocess.com/RetrieveAllForLastCommentUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAllForProject">
+      <soap12:operation soapAction="http://targetprocess.com/RetrieveAllForProject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAllForOwner">
+      <soap12:operation soapAction="http://targetprocess.com/RetrieveAllForOwner" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAllForIteration">
+      <soap12:operation soapAction="http://targetprocess.com/RetrieveAllForIteration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAllForRelease">
+      <soap12:operation soapAction="http://targetprocess.com/RetrieveAllForRelease" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveCommentsForBuild">
+      <soap12:operation soapAction="http://targetprocess.com/RetrieveCommentsForBuild" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCommentToBuild">
+      <soap12:operation soapAction="http://targetprocess.com/AddCommentToBuild" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCommentFromBuild">
+      <soap12:operation soapAction="http://targetprocess.com/RemoveCommentFromBuild" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAttachmentsForBuild">
+      <soap12:operation soapAction="http://targetprocess.com/RetrieveAttachmentsForBuild" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAttachmentFromBuild">
+      <soap12:operation soapAction="http://targetprocess.com/RemoveAttachmentFromBuild" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAttachmentToBuild">
+      <soap12:operation soapAction="http://targetprocess.com/AddAttachmentToBuild" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAttachedRequestsForBuild">
+      <soap12:operation soapAction="http://targetprocess.com/RetrieveAttachedRequestsForBuild" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRequestGeneralToBuild">
+      <soap12:operation soapAction="http://targetprocess.com/AddRequestGeneralToBuild" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveRequestGeneralFromBuild">
+      <soap12:operation soapAction="http://targetprocess.com/RemoveRequestGeneralFromBuild" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveTestPlanRunsForBuild">
+      <soap12:operation soapAction="http://targetprocess.com/RetrieveTestPlanRunsForBuild" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTestPlanRunToBuild">
+      <soap12:operation soapAction="http://targetprocess.com/AddTestPlanRunToBuild" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTestPlanRunFromBuild">
+      <soap12:operation soapAction="http://targetprocess.com/RemoveTestPlanRunFromBuild" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByID">
+      <soap12:operation soapAction="http://targetprocess.com/GetByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Create">
+      <soap12:operation soapAction="http://targetprocess.com/Create" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap12:operation soapAction="http://targetprocess.com/Update" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <soap12:operation soapAction="http://targetprocess.com/Delete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAll">
+      <soap12:operation soapAction="http://targetprocess.com/RetrieveAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Retrieve">
+      <soap12:operation soapAction="http://targetprocess.com/Retrieve" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIDs">
+      <soap12:operation soapAction="http://targetprocess.com/GetIDs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrievePage">
+      <soap12:operation soapAction="http://targetprocess.com/RetrievePage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveCount">
+      <soap12:operation soapAction="http://targetprocess.com/RetrieveCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BuildService">
+    <wsdl:port name="BuildServiceSoap" binding="tns:BuildServiceSoap">
+      <soap:address location="http://g3.tpondemand.com/Services/BuildService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BuildServiceSoap12" binding="tns:BuildServiceSoap12">
+      <soap12:address location="http://g3.tpondemand.com/Services/BuildService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

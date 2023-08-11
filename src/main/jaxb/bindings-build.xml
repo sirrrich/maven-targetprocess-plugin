@@ -1,0 +1,9 @@
+<jxb:bindings version="1.0"
+              xmlns:xs="http://www.w3.org/2001/XMLSchema"
+              xmlns:jxb="http://java.sun.com/xml/ns/jaxb">
+  <jxb:bindings schemaLocation="../wsdl/BuildService.wsdl#types?schema1" node="/xs:schema">
+    <jxb:schemaBindings>
+      <jxb:package name="org.stuartgunter.maven.plugins.tp.build"/>
+    </jxb:schemaBindings>
+  </jxb:bindings>
+</jxb:bindings>
